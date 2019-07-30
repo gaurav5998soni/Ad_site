@@ -1,0 +1,44 @@
+{%extends "WebAd/website/base.html"%}
+{%load static%}
+{%block content%}
+
+<div class="col-sm-9 col-xs-12 content"> 
+		<h2> Get Code </h2>
+
+		<br/>
+
+		<p> AdUnit Name : {{unit.name}} </p>
+		<p> AdUnit Id   : {{unit.id}}</p>
+		<p> User Id 	: {{profile.user.id}}</p>
+
+		<br/>
+
+		<h4> HTML Code </h4>
+		<pre id="html_code" style="font-size: 17px"></pre>
+		<h4>Javascript Code</h4>
+		<pre id="script_code" style="font-size: 17px"></pre>
+</div>
+
+</div>
+
+<script type="text/javascript" src="script.js"></script>	
+<script>
+
+$(document).ready(function(){
+	var htmlCode = '<div id="ad_{{unit.id}}"></div>'
+	var scriptCode = `&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;ad.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    $(document).ready(async function() {
+      var userID = {{profile.user.id}},
+          adUnitId = {{unit.id}},
+          adCode = await getTextAd(userID,adUnitId);
+	  $('#ad_{{unit.id}}').html(adCode);
+	});
+&lt;/script&gt;`
+	$('#html_code').text(htmlCode)
+	$('#script_code').html(scriptCode)
+});
+</script>
+
+{% endblock content%}

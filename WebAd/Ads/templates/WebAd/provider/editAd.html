@@ -1,0 +1,93 @@
+{%extends "WebAd/provider/base.html"%}
+{%load static%}
+{%block content%}
+
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Publish Ad </h2>
+
+		<form class="card2" method="post">
+			{% csrf_token %}
+
+			<div class="form-group">
+				<label for="name">Name:</label>
+    			<input type="text" class="form-control" id="name" name="ad_name" value="{{ad.name}}">
+			</div>
+			<div class="form-group">
+				<label for="url">Link of Ad:</label>
+    			<input type="url" class="form-control" id="url" name="ad_url" value="{{ad.link}}">
+			</div>
+			<div class="form-group">
+				<label for="adtype">Ad Type: </label>
+				<input value="{{type}} ads" id="adtype" class="form-control" readonly>
+			</div>	
+			<div class="form-group" id="textAd">
+  				<label for="comment">Content of Ad</label>
+  				<textarea class="form-control" rows="3" id="comment" name="ad_text" placeholder="{{ad.content}}"></textarea>
+			</div>
+			<div class="form-group" id="imageAd">
+  				<label for="square" class="form-control">Upload Square Ad Display Image</label>
+  				<input type="file" id="square" style="display: none"/>
+  				<label for="square" class="form-control">Upload Square Verticle Ad Display Image</label>
+  				<input type="file" id="square" style="display: none"/>
+  				<label for="square" class="form-control">Upload Square Horizontal Ad Display Image</label>
+  				<input type="file" id="square" style="display: none"/>
+			</div>
+			<div class="form-group tags">
+				<label for="tags">Tags for Ad : </label>
+				<select name="ad_tags" id="tags"  multiple="multiple">
+					{% for word in tags %}
+						{% if word in ad.get_tags%}
+							<option value="{{word}}" selected >{{word}} ads</option>
+						{% else %}
+							<option value="{{word}}">{{word}} ads</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+
+	
+			<div class="form-group">
+				<label for="duration">Duration of Ad: </label>
+				<input type="text" value="{{ad.duration}} Minutes" class="form-control" readonly>
+			</div>
+
+			<input type="hidden" name="type" value="{{type}}">
+			<input type="hidden" name="adId" value="{{ad.id}}">
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save and Start Serving Ad</button>
+			</div>
+		</form>
+
+	</div>
+
+</div>
+<script type="text/javascript" src="{% static 'Ads/multiselect/js/bootstrap-multiselect.js' %}"></script>
+<script>
+	$(document).ready(function() {
+
+		$('#imageAd').hide();
+
+
+        $('#tags').multiselect({
+        	includeSelectAllOption: true,
+            enableFiltering: true,
+            buttonClass: 'form-control',
+            buttonWidth: '100%'
+        });
+
+    	$("#adtype").change(function () {
+    		var selected_option = $('#adtype').val();
+    		if (selected_option === 'text') {
+    		    $('#textAd').show();
+    		    $('#imageAd').hide();
+    		}
+    		else if (selected_option === 'image') {
+    		    $('#textAd').hide();
+    	   	 $('#imageAd').show();
+    		}  	  
+	});
+    });
+</script>
+
+{%endblock content%}

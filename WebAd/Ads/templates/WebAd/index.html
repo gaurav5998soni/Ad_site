@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Ad Code</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="{% static 'Ads/style.css' %}">
+</head>
+<body>
+
+<!-- Header	 -->
+
+<div class="container-fluid bg-primary heading row">
+	<h1 class="col-sm-7"> Mega Ad Service </h1>
+	<form action="{% url 'logIn'%}" method="post">
+		{% csrf_token %}
+		<div class="form-group  col-sm-2">
+  			<label for="usr">Email :</label>
+  			<input type="email" name="email" class="form-control" id="usr" required>
+		</div>
+		<div class="form-group  col-sm-2">
+  			<label for="pwd">Password :</label>
+  			<input type="password" name="pwd" class="form-control" id="pwd" required>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-success col-xs-12 col-sm-1 text-center" id="login">Log-In</button>
+		</div>
+	</form>
+</div>
+
+<!-- Header End -->
+
+<div class="container-fluid first-box row">
+
+<div class="container about-box col-sm-8 ">
+	<div class="content" style="float:left; background: #AB47BC;">
+		<h3 class="title" > Grow your business with Our Serive</h3>
+		<p class="text"> Get in front of customers when they’re surfing site which is related to your services/ Product. Only pay for results, like clicks to your website or calls to your business.</p>
+	</div>
+
+	<div class="content" style="float:right; background: #009688;">
+		<h3 class="title" > The right ads for your audience</h3>
+		<p class="text"> Ads are reviewed to ensure they’re high quality and relevant to your content or audience, even when viewed on smartphones and tablets. The result? You can earn more from them.</p>
+	</div>
+
+	<div class="content" style="float:left; background: #FF7043;">
+		<h3 class="title" > A team that builds sustainable value</h3>
+		<p class="text"> We have dedicated teams covering a wide range of technology, business and process innovation.Our commitment of substantial resources—people, capital, time, and ideas—to drive technology innovation.</p>
+	</div>
+
+
+</div>	
+
+<!-- Sign UP Box	 -->
+	<div class="container signup-box col-sm-4">
+		<div class="container-fluid heading">
+			<p class="text-center">Sign Up</p>
+		</div>		
+		<form action="{% url 'signUp' %}" method="POST">
+			{% csrf_token %}
+			<div class="form-group  col-xs-12">
+  				<label for="usr">Name *:</label>
+  				<input type="text" name="name" class="form-control" id="usr" required>
+			</div>
+			<div class="form-group  col-xs-12">
+  				<label for="phone">Phone No. *:</label>
+  				<input type="text" name="phone" class="form-control" id="phone" required>
+			</div>
+			<div class="form-group  col-xs-12">
+  				<label for="email">Email *:</label>
+  				<input type="email" name="email" class="form-control" id="email" required>
+			</div>
+			<div class="form-group  col-xs-12">
+  				<label for="pwd">Password *:</label>
+  				<input type="password" name="pwd" class="form-control" id="pwd" required>
+			</div>
+			<div class="form-group  col-xs-12">
+  				<label for="site">Primary Site:</label>
+  				<input type="url" name="site" class="form-control" id="site">
+			</div>
+			<div class="form-group col-xs-12">
+				<label>I Want to *:</label>
+				<br/>
+				<input type="radio" name="choice" id="choice-website" value="True" hidden="" required>
+				<input type="radio" name="choice" id="choice-service" value="False" hidden="" required>
+
+				<label for="choice-website" class="btn btn-info" id="select-website">Monetize My Website</label>
+				<label for="choice-service" class="btn btn-info" id="select-service">Ad My Service</label>
+			</div>
+			<input type="submit" class="btn" value="Sign-Up">
+		</form>	
+	</div>
+<!-- Sign Up Box End -->
+
+</div>
+
+
+
+<script type="text/javascript" src="script.js"></script>	
+</body>
+</html>

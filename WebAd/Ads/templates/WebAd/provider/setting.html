@@ -1,0 +1,43 @@
+{%extends "WebAd/provider/base.html"%}
+{%load static%}
+{%block content%}
+
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Account Setting </h2>
+
+		<form class="card2">
+			<div class="form-group">
+				<label for="name">User Name:</label>
+    			<input type="text" class="form-control" id="name" name="ad_name" value="Mayur Birle">
+			</div>
+			<div class="form-group">
+				<label for="url">Phone No:</label>
+    			<input type="url" class="form-control" id="url" name="url" value="7354271601">
+			</div>
+			<div class="form-group">
+				<label for="url">Email ID:</label>
+    			<input type="url" class="form-control" id="url" name="url" value="mbirle@123">
+			</div>
+			<div class="form-group tags">
+				<label for="url">Primary Site:</label>
+    			<input type="url" class="form-control" id="url" name="url" value="mayurbirle.com">
+			</div>
+			<div class="form-group">
+				<label for="url">Customer ID:</label>
+    			<input type="url" class="form-control" id="url" name="url" value="720484923" readonly>
+			</div>
+			<div class="form-group">
+				<label for="url">Account Type:</label>
+    			<input type="url" class="form-control" id="url" name="url" value="Website Monetize" readonly>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save Settings</button>
+			</div>
+		</form>
+
+
+	</div>
+	</div>
+</div>
+
+{%endblock content%}

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>WAS | {{profile.user.first_name}}</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+	<link rel="stylesheet" href="{% static 'Ads/website/style.css' %}">
+		<link rel="stylesheet" href="{% static 'Ads/multiselect/css/bootstrap-multiselect.css' %}">
+</head>
+<body>
+
+<!-- Header	 -->
+
+<div class="container-fluid bg-primary heading row">
+	<h1 class="col-sm-7"> Web Ad Service </h1>
+	<p class="col-sm-2">Welcome {{profile.user.first_name}}</p>
+</div>
+
+<!-- Header End -->
+
+<div class="container-fluid first-box">
+	<div class="row">
+
+
+<!-- Side Nav -->
+		<div class="col-sm-3 col-xs-12 sidenav" style="margin: 0; left:0; position: relative;"> 
+			<ul class="list-group">
+				<a href="{% url 'wm_index'%}" class="list-group-item active"><span class="glyphicon glyphicon-home text-left"></span>Home</a>
+				<a href="{% url 'wm_add'%}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span>Add Ad Unit</a>
+				<a href="{% url 'wm_manage'%}" class="list-group-item"><span class="glyphicon glyphicon-tasks"></span>Manage Ad</a>
+				<a href="{% url 'wm_setting'%}" class="list-group-item"><span class="glyphicon glyphicon-wrench"></span>Account Setting</a>
+				<a href="{% url 'wm_transaction'%}" class="list-group-item"><span class="glyphicon glyphicon-usd"></span>Transaction</a>
+				<a href="" class="list-group-item"><span class="glyphicon glyphicon-send"></span>Feedback</a>
+				<a href="{% url 'logOut'%}" class="list-group-item"><span class="glyphicon glyphicon-off"></span>LogOut</a>
+			</ul>
+		</div>
+<!-- Side Nav End -->
+
+	{%block content %}	{% endblock content %}
+
+<script type="text/javascript" src="script.js"></script>	
+</body>
+</html>

@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+
+*{
+	font-family: 'Nova Flat', cursive;
+}
+
+body,html{
+	margin:0 auto;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.row{
+	margin: 0 auto;
+}
+
+/*<Header CSS>*/
+
+.heading{
+	width: 100%
+	padding: 0px;
+}
+
+.heading h1{
+	/*width: 500px;*/
+	position: relative;
+	float: left;
+	left: 5%;
+}
+
+.heading #login{
+	position: relative;
+	top: 24px;
+	right: 5px;
+}
+
+/*<Header CSS END>*/
+
+
+.first-box{
+	height : auto;
+	width: 100%;
+	padding: 15px 0 15px 0px; 
+	background-image: url("dot.jpg"); 
+	background-size: 400px; 
+}
+
+/*<About CSS>*/
+
+.first-box .about-box{
+	margin-left: 2%;
+	border-radius: 10px;
+	/*background: #E8F5E9;*/
+	min-height: 500px;
+	height: auto;   
+}
+
+.first-box .about-box .content{
+	width: 80%;
+	padding:10px 20px 10px 20px;
+	color: #fff;
+	margin: 10px 0 10px 0;
+	border-radius: 10px;
+	box-shadow: 0 10px 6px -6px #777;
+}
+.first-box .about-box .content .title{
+	width: 80%;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.first-box .about-box .content .text{
+	font-size: 19px;
+}
+
+/*<About CSS End>*/
+
+/*<SignUP Box CSS>*/
+
+.first-box .signup-box{
+	margin: 0 auto;
+	position: relative;
+	width: 350px;
+	height: auto;
+	background: rgba(51,51,51,.7);
+	float: right;
+	right: 3%;
+	top: 2%;
+	border-radius: 5px;
+	padding: 0px;
+	padding-bottom:15px ; 
+	box-shadow: 0 12px 5px -6px #777;
+}
+
+.first-box .signup-box .heading{
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	border-radius: 5px 5px 0px 0px;
+	background: #fff; 
+}
+
+.first-box .signup-box .heading p{
+	font-size: 22px;
+	font-weight: 700;
+	position: relative;
+	top: 5px;
+}
+
+.first-box .signup-box form{
+	position: relative;
+	top: 10px;
+}
+
+.first-box .signup-box form label{
+	font-size: 15px;
+	color: #fff;
+}
+
+.first-box .signup-box form input{
+	height: 30px;
+	transition: .2s ease-in-out;
+}
+
+.first-box .signup-box form input[type=submit]{
+	position: relative;
+	height: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #4286f4;
+	color: #fff;
+	font-weight: 700;
+}
+
+.first-box .signup-box form div:hover input{
+	height: 36px;
+	transition: .2s ease-in-out;
+	background: #cfcfcf;
+}
+
+#select-website, #select-service{
+	display: inline-block;
+	font-size: 14px;
+	transition: .3s ease-in-out;
+}
+
+#choice-website:checked ~ #select-website{
+	transform: scale(1.05);
+	transition: .3s ease-in-out;
+	background: #00E676;
+}
+
+#choice-service:checked ~ #select-service{
+	transform: scale(1.05);
+	transition: .3s ease-in-out;
+	background: #00E676;
+}
+
+/*<SignUP Box CSS END>*/
+
+
+
+@media only screen and (max-width: 768px){
+	.heading h1{
+		width: 100%;
+		text-align: center;
+	}
+	.heading #login{
+		position: relative;
+		float: right;
+		top: 0px;
+		right: 0px;
+	}
+
+	.first-box .signup-box{
+		margin: 0 auto;
+		float : none;
+		right:0;
+		width: 90%;
+	}
+
+	.first-box .signup-box form input{
+		height: 28px;
+	}
+} 

@@ -1,0 +1,101 @@
+{%extends "WebAd/provider/base.html"%}
+{%load static%}
+{%block content%}
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Publish Ad </h2>
+
+		<form class="card2" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="name">Name:</label>
+    			<input type="text" class="form-control" id="name" name="ad_name" placeholder="A name for your ad unit">
+			</div>
+			<div class="form-group">
+				<label for="url">Link of Ad:</label>
+    			<input type="url" class="form-control" id="url" name="ad_url" placeholder="URL of your ad website/service ">
+			</div>
+			<div class="form-group">
+				<label for="adtype">Ad Type: </label>
+				<select name="ad_type" id="adtype" class="form-control">
+					<option value="text">Text Ad</option>
+					<option value="image">Display Ad</option>
+				</select>
+			</div>	
+			<div class="form-group" id="textAd">
+  				<label for="comment">Content of Ad</label>
+  				<textarea class="form-control" rows="3" id="comment" name="ad_text" placeholder="Your Ad Content"></textarea>
+			</div>
+			<div class="form-group" id="imageAd">
+  				<label for="square" class="form-control">Upload Square Ad Display Image</label>
+  				<input type="file" name="square" id="square" style="display: none" />
+  				<label for="verticle" class="form-control">Upload Square Verticle Ad Display Image</label>
+  				<input type="file" name="verticle" id="verticle" style="display: none"/>
+  				<label for="horizontal" class="form-control">Upload Horizontal Ad Display Image</label>
+  				<input type="file" name="horizontal" id="horizontal" style="display: none"/>
+			</div>
+			<div class="form-group tags">
+				<label for="tags">Tags for Ad : </label>
+				<select name="ad_tags" id="tags"  multiple="multiple">
+					{% for word in tags %}
+						<option value="{{word}}">{{word}} ads</option>
+					{% endfor %}
+				</select>
+			</div>
+
+	
+			<div class="form-group">
+				<label for="duration">Duration of Ad: </label>
+				<select name="ad_duration" id="duration" class="form-control">
+					<option value="24">24 Hrs		(1 Day)</option>
+					<option value="48">48 Hrs		(2 Days)</option>
+					<option value="96">96 Hrs		(4 Days)</option>
+					<option value="168">168 Hrs		(1 Week)</option>
+					<option value="730">730 Hrs		(1 Month)</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save and Start Serving Ad</button>
+			</div>
+		</form>
+
+	</div>
+
+</div>
+<script type="text/javascript" src="{% static 'Ads/multiselect/js/bootstrap-multiselect.js' %}"></script>
+
+<script>
+	$(document).ready(function() {
+
+        $('#imageAd').hide();
+
+
+
+        $('#tags').multiselect({
+        	includeSelectAllOption: true,
+            enableFiltering: true,
+            buttonClass: 'form-control',
+            buttonWidth: '100%'
+        });
+
+
+
+        	$("#adtype").change(function () {
+    var selected_option = $('#adtype').val();
+    if (selected_option === 'text') {
+        $('#textAd').show();
+        $('#imageAd').hide();
+    }
+    else if (selected_option === 'image') {
+        $('#textAd').hide();
+        $('#imageAd').show();
+    }
+})
+
+
+	});
+
+
+
+</script>
+
+{%endblock content%}

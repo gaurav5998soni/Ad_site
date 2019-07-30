@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Flat');
+
+*{
+	font-family: 'Nova Flat', cursive;
+}
+
+body,html{
+	margin:0 auto;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+}
+
+.row{
+	margin: 0 auto;
+	padding: 0;
+}
+
+.container-fluid{
+	padding: 0;
+}
+
+.card1{
+	box-shadow: 0px 0px 18px 3px #777;
+}
+
+.card2{
+	box-shadow: 0px 10px 10px 0px #777;
+}
+
+/*<Header CSS>*/
+
+.heading{
+	width: 100%
+	padding: 0px;
+}
+
+.heading h1{
+	position: relative;
+	float: left;
+	left: 5%;
+}
+.heading p{
+	position: relative;
+	float: right;
+	top: 25px;
+	font-size: 17px;
+}
+
+.first-box{
+	height: 100%;
+}
+
+.first-box .row{
+	min-height: 400px;
+}
+
+.first-box .row .sidena ul{
+	position: relative;
+	margin: 0;
+	right: 0;
+}
+
+.first-box .row .sidenav ul a{
+	padding: 25px;
+	font-size: 20px;
+	text-align: center;
+	border-left: none;
+	left: -15px;
+	border-radius: 0 0 4px 0 ;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.first-box .row .sidenav ul .active{
+	background: #4c4c4c;
+	color: #fff;
+}
+
+.first-box .row .sidenav ul a span{
+	position: relative;
+	float: left;
+}
+
+
+.first-box .row .content h2{
+	font-family: "Nova Flat";
+}
+
+.first-box .row .content .container{
+	width: 100%;
+	height: 100px;
+	margin: 15px 0 20px 0;
+	border-radius: 4px;
+}
+
+#chartContainer{
+	margin: 0 auto;
+	width: 600px ;
+	height: 350px ;
+	border-radius: 5px;
+}
+
+.first-box .row .content form{
+	margin: 0 auto;
+	width:90%;
+	padding: 20px;
+	background: #E8EAF6;
+	border-radius: 5px;
+}
+
+.first-box .row .content form .tags button span{
+	float: left;
+}
+.first-box .row .content form .tags button .caret{
+	display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 6px dashed;
+    border-top: 4px solid\9;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
+	float: right;
+	transform: translate(6px,7px);
+}
+
+
+
+
+
+
+/*select.multiselect,
+select.multiselect + div.btn-group,
+select.multiselect + div.btn-group button.multiselect,
+select.multiselect + div.btn-group.open .multiselect-container{
+    width:100% !important;
+}*/
+
+
+@media only screen and (max-width: 768px){
+	.heading h1{
+		width: 100%;
+		text-align: center;
+	}
+	.heading #login{
+		position: relative;
+		float: right;
+		top: 0px;
+		right: 0px;
+	}
+	.first-box .row .content .container{
+		height: 350px;
+	}
+
+	.first-box .signup-box form input{
+		height: 28px;
+	}
+} 

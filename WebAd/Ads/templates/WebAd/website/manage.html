@@ -1,0 +1,42 @@
+{%extends "WebAd/website/base.html"%}
+{%block content%}
+
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Manage Ads </h2>
+
+<div class="table-responsive" style="padding: 10px; padding-right: 15px; top: 10px; position: relative;">          
+  <table class="table table-hover" style="font-size: 18px">
+    <thead>
+      <tr>
+        <th>Ad ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Total Views</th>
+        <th>Total Click</th>
+        <th>View Code</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for unit in units %}
+      <tr>
+        <td>{{unit.id}}</td>
+        <td>{{unit.name}}</td>
+        <td>{{unit.ad_type}} ads</td>
+        <td>{{unit.total_views}}</td>
+        <td>{{unit.total_click}}</td>
+        <td><a href="viewCode?adUnitId={{unit.id}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        <td><a href="editAd?adId={{unit.id}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+  </div>
+
+
+	</div>
+
+	</div>
+</div>
+{%endblock content%}

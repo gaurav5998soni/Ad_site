@@ -1,0 +1,67 @@
+{%extends "WebAd/website/base.html"%}
+{%load static%}
+{%block content%}
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Edit Ad Unit </h2>
+	
+		<form class="card2" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="name">Name:</label>
+    			<input type="text" class="form-control" id="name" name="ad_name" value="{{unit.name}}">
+			</div>
+			<div class="form-group">
+				<label for="url">Website:</label>
+    			<input type="url" class="form-control" id="url" name="site_url" value="{{unit.website}}">
+			</div>
+			<div class="form-group">
+				<label for="type">Ad Type: </label>
+				<input type="text" value='{{unit.ad_type}} Ads' id="type" class="form-control" readonly>
+			</div>
+			<div class="form-group tags">
+				<label for="tags">Tags for Ad : </label>
+				<select name="ad_tags" id="tags"  multiple="multiple">
+					{% for word in tags%}
+						{% if word in unit.get_tags%}
+							<option value="{{word}}" selected>{{word}} Ads</option>
+						{% else%}	
+							<option value="{{word}}" >{{word}} Ads</option>
+						{%endif%}
+					{% endfor %}	
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="shape">Select Dimension for Ad: </label>
+				<input type="text" value='{{unit.ad_shape}} shape' id="shape" class="form-control" readonly>
+			</div>
+			<div class="form-group">
+				<label for="alt">If No Ad Available: </label>
+				<select name="ad_alternate" id="alt" class="form-control">
+					<option value="collapse">Collapse The Ad</option>
+					<option value="color">Show Color Block</option>
+					<option value="url">Show URL of My Site.</option>
+				</select>
+			</div>
+			<input type="text" name="adUnitId" value="{{unit.id}}" hidden>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save Setting</button>
+				<button class="btn btn-danger">Delete Ad Unit</button>
+			</div>
+		</form>
+
+	</div>
+
+</div>
+
+<script type="text/javascript" src="{% static 'Ads/multiselect/js/bootstrap-multiselect.js' %}"></script>
+<script>
+	$(document).ready(function() {
+        $('#tags').multiselect({
+        	includeSelectAllOption: true,
+            enableFiltering: true,
+            buttonClass: 'form-control',
+            buttonWidth: '100%'
+        });
+	});
+</script>
+{% endblock content%}

@@ -1,0 +1,74 @@
+{%extends "WebAd/website/base.html"%}
+{% load static %}
+{%block content%}
+
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Add New Ad Unit </h2>
+
+		<form class="card2" method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="name">Name:</label>
+    			<input type="text" class="form-control" id="name" name="ad_name" placeholder="A name for your ad unit">
+			</div>
+			<div class="form-group">
+				<label for="url">Website:</label>
+    			<input type="url" class="form-control" id="url" name="site_url" placeholder="Url of Site in which this ad is placed.">
+			</div>
+			<div class="form-group">
+				<label for="type">Ad Type: </label>
+				<select name="ad_type" id="type" class="form-control">
+					<option value="text">Text Only Ad</option>
+					<option value="display">Display Only Ad</option>
+				</select>
+			</div>
+			<div class="form-group tags">
+				<label for="tags">Tags for Ad : </label>
+				<select name="ad_tags" id="tags"  multiple="multiple">
+					<option value="food">Food Ads</option>
+					<option value="tavel">Travel Ads</option>
+					<option value="eduction">Education Ads</option>
+					<option value="ecommerce">E-Commerce Ads</option>
+					<option value="trade">Trade Ads</option>
+					<option value="game">Game Ads</option>
+					<option value="entertainment">Entertainment Ads</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="shape">Select Dimension for Ad: </label>
+				<select name="ad_shape" id="shape" class="form-control">
+					<option value="square">Square (400px * 400px)</option>
+					<option value="horizontal">Horizontal (600px * 300px)</option>
+					<option value="verticle">Verticle (300px * 600px)</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="alt">If No Ad Available: </label>
+				<select name="ad_alternate" id="alt" class="form-control">
+					<option value="collapse">Collapse The Ad</option>
+					<option value="color">Show Color Block</option>
+					<option value="url">Show URL of My Site.</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save Setting & Generate Code</button>
+			</div>
+		</form>
+
+	</div>
+
+</div>
+
+<script type="text/javascript" src="{% static 'Ads/multiselect/js/bootstrap-multiselect.js' %}"></script>>
+<script>
+	$(document).ready(function() {
+        $('#tags').multiselect({
+        	includeSelectAllOption: true,
+            enableFiltering: true,
+            buttonClass: 'form-control',
+            buttonWidth: '100%'
+        });
+	});
+</script>
+
+{%endblock content%}

@@ -1,0 +1,39 @@
+{%extends "WebAd/provider/base.html"%}
+{%load static%}
+{%block content%}
+
+	<div class="col-sm-9 col-xs-12 content row"> 
+		<h2> Manage Ads </h2>
+
+<div class="table-responsive" style="padding: 10px; padding-right: 15px; top: 10px; position: relative;"> 
+<h3> Text Ad(s) </h3>         
+  <table class="table table-hover" style="font-size: 18px">
+    <thead>
+      <tr>
+        <th>Ad ID</th>
+        <th>Name</th>
+        <th>Total View</th>
+        <th>Total Click</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for ad in textAds%}
+      <tr>
+        <td>{{ad.id}}</td>
+        <td>{{ad.name}}</td>
+        <td>{{ad.total_views}}</td>
+        <td>{{ad.total_click}}</td>
+        <td><a href="editAd?adId={{ad.id}}&type=text"><span class="glyphicon glyphicon-edit"></span></a></td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+  </table>
+  </div>
+
+	</div>
+
+	</div>
+</div>
+{%endblock content%}
